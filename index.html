@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>مركز المساعدة</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f3f6fb;
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    margin-bottom:20px;
+}
+
+h1,h2{
+    text-align:center;
+}
+
+.menu-btn{
+    width:100%;
+    padding:18px;
+    margin:10px 0;
+    border:none;
+    border-radius:12px;
+    background:#2f6df6;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.menu-btn:hover{
+    background:#1c57d9;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:15px;
+    margin-top:10px;
+    margin-bottom:10px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    box-sizing:border-box;
+    font-size:16px;
+}
+
+textarea{
+    height:140px;
+}
+
+.notice{
+    background:#fff3cd;
+    border-radius:15px;
+    padding:15px;
+    margin-top:15px;
+}
+
+.submit-btn{
+    width:100%;
+    background:#2f6df6;
+    color:white;
+    border:none;
+    padding:16px;
+    border-radius:12px;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.counter{
+    text-align:center;
+    color:#2f6df6;
+    font-size:28px;
+    font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+<h1>مركز المساعدة</h1>
+
+<button class="menu-btn" onclick="setType('ضحية')">ضحية</button>
+<button class="menu-btn" onclick="setType('مشكلة مع الأصدقاء')">مشكلة مع الأصدقاء</button>
+<button class="menu-btn" onclick="setType('كيف أحمي حسابي')">كيف أحمي حسابي</button>
+<button class="menu-btn" onclick="setType('تغيير كلمة المرور')">تغيير كلمة المرور</button>
+<button class="menu-btn" onclick="setType('ابتزاز إلكتروني')">ابتزاز إلكتروني</button>
+<button class="menu-btn" onclick="setType('مشكلة عائلية')">مشكلة عائلية</button>
+
+</div>
+
+<div class="card">
+<div class="counter">
+عدد طلبات المساعدة: 125
+</div>
+</div>
+
+<div class="card">
+
+<h2>إرسال طلب مساعدة</h2>
+
+<form action="http://127.0.0.1:5000/send" method="POST">
+
+<input
+name="name"
+type="text"
+placeholder="الاسم (اختياري)">
+
+<input
+name="email"
+type="email"
+placeholder="البريد الإلكتروني (اختياري)">
+
+<input
+name="problem"
+id="problemType"
+type="text"
+placeholder="نوع المشكلة"
+readonly>
+
+<select name="priority">
+<option>عادي</option>
+<option>مهم</option>
+<option>عاجل</option>
+</select>
+
+<textarea
+name="message"
+placeholder="اكتب مشكلتك هنا بالتفصيل"></textarea>
+
+<div class="notice">
+
+<b>⚠️ تنبيه مهم</b>
+
+<ul>
+<li>لا ترسل كلمة المرور الخاصة بك.</li>
+<li>لا ترسل رموز التحقق.</li>
+<li>لا ترسل معلومات البطاقات.</li>
+<li>اشرح المشكلة فقط.</li>
+</ul>
+
+</div>
+
+<button class="submit-btn" type="submit">
+📨 إرسال الطلب
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script>
+
+function setType(type){
+document.getElementById("problemType").value = type;
+window.scrollTo({
+top: document.body.scrollHeight,
+behavior:"smooth"
+});
+}
+
+</script>
+
+</body>
+</html>

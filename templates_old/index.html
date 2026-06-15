@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>درع التقنية</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<script>
+function setType(type){
+    document.getElementById("problemType").value = type;
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1 style="text-align:center;">🛡️ درع التقنية</h1>
+
+<button class="menu-btn" onclick="setType('دعم تقني')">
+💻 دعم تقني
+</button>
+
+<button class="menu-btn" onclick="setType('أمن سيبراني')">
+🔐 أمن سيبراني
+</button>
+
+<button class="menu-btn" onclick="setType('إنشاء موقع')">
+🌐 إنشاء موقع
+</button>
+
+<button class="menu-btn" onclick="setType('إنشاء بوت تلغرام')">
+🤖 إنشاء بوت تلغرام
+</button>
+
+<button class="menu-btn" onclick="setType('تعليم البرمجة')">
+📚 تعليم البرمجة
+</button>
+
+<button class="menu-btn" onclick="setType('استشارات تقنية')">
+⚙️ استشارات تقنية
+</button>
+
+<button class="menu-btn" onclick="setType('مشاكل التطبيقات')">
+📱 مشاكل التطبيقات
+</button>
+
+</div>
+
+<div class="card">
+
+<div class="counter">
+عدد الطلبات: 214,311
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>📨 إرسال طلب مساعدة</h2>
+
+<form action="/send" method="POST">
+
+<input
+name="name"
+type="text"
+placeholder="الاسم (اختياري)"
+>
+
+<input
+name="email"
+type="email"
+placeholder="البريد الإلكتروني (اختياري)"
+>
+
+<input
+name="problem"
+id="problemType"
+type="text"
+placeholder="نوع الخدمة"
+readonly
+>
+
+<select name="priority">
+<option>عادي</option>
+<option>مهم</option>
+<option>عاجل</option>
+</select>
+
+<textarea
+name="message"
+placeholder="اكتب تفاصيل الطلب هنا"
+></textarea>
+
+<div class="notice">
+
+<b>⚠️ تنبيه مهم</b>
+
+<ul>
+<li>لا ترسل كلمة المرور الخاصة بك.</li>
+<li>لا ترسل رموز التحقق.</li>
+<li>لا ترسل معلومات البطاقات.</li>
+<li>اشرح المشكلة فقط.</li>
+</ul>
+
+</div>
+
+<button class="submit-btn" type="submit">
+📨 إرسال الطلب
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

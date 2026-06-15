@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>لوحة الإدارة</title>
+
+<style>
+
+body{
+background:#0f172a;
+color:white;
+font-family:Arial;
+padding:20px;
+}
+
+h1{
+text-align:center;
+margin-bottom:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+
+.card{
+background:#1e293b;
+padding:25px;
+border-radius:15px;
+text-align:center;
+}
+
+.num{
+font-size:35px;
+font-weight:bold;
+color:#60a5fa;
+}
+
+.btn{
+display:block;
+background:#2563eb;
+padding:18px;
+text-align:center;
+text-decoration:none;
+color:white;
+border-radius:12px;
+margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>👑 لوحة الإدارة</h1>
+
+<div class="grid">
+
+<div class="card">
+<div class="num">214311</div>
+عدد الطلبات
+</div>
+
+<div class="card">
+<div class="num">350856</div>
+عدد الزوار
+</div>
+
+<div class="card">
+<div class="num">1132</div>
+المواقع المنشأة
+</div>
+
+<div class="card">
+<div class="num">5874</div>
+البوتات المنشأة
+</div>
+
+</div>
+
+<a class="btn" href="/">🏠 العودة للرئيسية</a>
+<hr>
+
+<h2>الطلبات الواردة</h2>
+
+{% for order in orders %}
+<div style="background:#1e293b;padding:15px;margin:10px 0;border-radius:10px">
+    <p><b>الاسم:</b> {{ order.name }}</p>
+    <p><b>الخدمة:</b> {{ order.service }}</p>
+    <p><b>التفاصيل:</b> {{ order.details }}</p>
+</div>
+{% endfor %}
+</body>
+</html>
